@@ -1,5 +1,40 @@
 # Chevereto Free
 
+安装cheverto
+
+1、上传安装包
+
+2、解压Chevereto-Free到网站根目录,并赋予权限
+
+chown www:www -R /www/wwwroot/xxxx
+
+3、创建settings.php文件
+
+在/www/wwwroot/xxxx/app目录新建settings.php文件并给予可写入权限:
+
+cd  /www/wwwroot/xxxx/app
+
+touch settings.php
+
+chmod -R 777 settings.php
+
+3、修改网站配置文件，如：/www/server/panel/vhost/nginx/xxxx.conf
+
+添加
+
+location / {
+
+index index.php;
+try_files $uri $uri/ /index.php?$query_string;
+
+}
+
+重启nginx
+Nginx -s reload
+
+输入域名开始安装
+---------------------------------------------------------------------------------------------------------------------------------
+
 Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server. It's your hosting and your rules, so say goodbye to closures and restrictions. This repo here is Chevereto Free, which is a fork of Chevereto V3 in which only the most essential features are preserved and it is released as Open Source software.
 
 Chevereto Free has the same look and feel of the [paid version](https://chevereto.com). Most likely it will fit all your personal needs. The features removed in this fork are those business-oriented like external storage servers or banner management to name a few.
